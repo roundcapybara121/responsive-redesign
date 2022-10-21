@@ -321,6 +321,10 @@ body {
     .menu {
         width: 50%;
     }
+
+    .nav-bar {
+        z-index: 10;
+    }
 }
 
 /*media query for mobile*/
