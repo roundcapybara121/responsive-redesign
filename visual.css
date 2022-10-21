@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+body {
+    font-family: Merriweather;
+}
+
+
+.nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    position: relative;
+    background-color: #E3E6DB;
+    padding: 12px 20px;
+}
+
+.nav-bar h2 {
+    background-color: #E3E6DB;
+}
+
+.nav-bar h3 {
+    background-color: #E3E6DB;
+    color: #F19B00;
+    text-align: center;
+}
+
+.menu {
+    display: flex;
+    /*from media query*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 100;
+    background-color: #E3E6DB;
+    transition: all 0.2s ease-in-out;
+    padding-bottom: 2px;
+}
+
+.menu .small {
+    line-height: 1px;
+}
+
+.menu li {
+    padding-left: 20px;
+    /*color of bullet points*/
+    background-color: #E3E6DB;
+    /*from media query*/
+    margin-top: 40px;
+}
+
+.menu li a {
+    display: flex;
+    text-decoration: none;
+    color: #111;
+    /*color behind the text*/
+    background-color: #E3E6DB;
+    text-align: center;
+    justify-content: center;
+    transition: 0.15s ease-in-out;
+    position: relative;
+    text-transform: uppercase;
+    line-height: 1px;
+}
+
+.menu li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    /*color of lines under text*/
+    background-color: #111;
+    transition: 0.15s ease-in-out;
+}
+
+.menu li a:hover:after {
+    width: 100%;
+}
+
+.menu li h2 {
+    line-height: 1px;
+    color: #F19B00;
+}
+
+.open-menu,
+.close-menu {
+    position: absolute;
+    color: #111;
+    background-color: #E3E6DB;
+    cursor: pointer;
+    font-size: 1.5rem;
+    /*for desktop, removes hamburger*/
+    display: flex;
+}
+
+.open-menu {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: #F19B00;
+}
+
+.close-menu {
+    top: 20px;
+    right: 20px;
+    color: #F19B00;
+}
+
+/*open and closes menu - from media query*/
+#check:checked~.menu {
+    /*moves the menu back, menu moves right from right: -100% in .menu*/
+    right: 0;
+}
+
+#check {
+    display: none;
+}
+
+.lines {
+    width: 60%;
+    height: 4px;
+    position: relative;
+    background-color: #E3E6DB;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.lines::after,
+.lines::before {
+    content: '';
+    position: absolute;
+    margin: 0;
+    height: 1px;
+    background: #111;
+    width: 50%;
+    top: 45%;
+}
+
+.lines::after {
+    left: 0;
+}
+
+.lines::before {
+    right: 0;
+}
+
+/*main body starts here*/
+
+.section {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-section {
+    background-color: #ffffff;
+}
+
+.hero-col {
+    padding: clamp(1rem, 8vw, 5rem);
+    max-width: 50%;
+}
+
+.section h2 {
+    font-family: Merriweather;
+    font-size: clamp(30px, 2.5vw, 100px);
+    font-weight: 400;
+    line-height: 5vw;
+    justify-content: center;
+}
+
+.section p {
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+.hero-section img {
+    width: clamp(225px, 30vw, 300px);
+}
+
+/*featured book section*/
+.featured {
+    background-color: #ffffff;
+}
+
+.featured-col {
+    padding: clamp(1rem, 8vw, 5rem);
+    max-width: 50%;
+}
+
+.featured img {
+    width: clamp(225px, 30vw, 300px);
+}
+
+/*collapsible buttons*/
+.wrapper {
+    display: flex;
+    padding-top: 50px;
+    justify-content: center;
+}
+
+.collapsible {
+    /* max-width: 450px; */
+    width: clamp(350px, 50vw, 600px);
+    overflow: hidden;
+    font-weight: 500;
+    padding-top: 40px;
+}
+
+.collapsible input {
+    display: none;
+}
+
+.collapsible label {
+    position: relative;
+    font-weight: 600;
+    background: #FDF0DF;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.1), 0 4px 11px 0 rgb(0, 0, 0, 0, .08);
+    color: #111;
+    display: block;
+    margin-bottom: 50px;
+    cursor: pointer;
+    padding: 15px 18px;
+    border-radius: 4px;
+}
+
+.collapsible label:after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 25px;
+    height: 25px;
+    background: url(right.svg) no-repeat 0 0;
+    transition: all 0.3 ease;
+}
+
+.collapsible input:checked+label:after {
+    transform: rotate(90deg);
+}
+
+.collapsible-text {
+    max-height: 1px;
+    overflow: hidden;
+    border-radius: 4px;
+    line-height: 1.4;
+    position: relative;
+    top: -100%;
+    opacity: 0.5;
+    transition: all 0.3 ease-in-out;
+}
+
+.collapsible input:checked~.collapsible-text {
+    max-height: 4500px;
+    padding-bottom: 25px;
+    /* background: #ffffff; */
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.1), 0 4px 11px 0 rgb(0, 0, 0, 0, .08);
+    opacity: 1;
+    top: 0;
+}
+
+.collapsible-text p {
+    padding-top: 10px;
+    padding-left: 5px;
+    line-height: 2;
+    background-color: #E3E6DB;
+}
+
+/*media query for tablet*/
+@media (max-width: 1023px) {
+    .custom-shape-divider svg {
+        width: calc(200% + 1.3px);
+        height: 150px;
+    }
+
+    .section {
+        height: 40vh;
+    }
+
+    .hero-col {
+        max-width: 100%;
+        width: clamp(300px, 50vw, 600px);
+        padding: 30px;
+    }
+
+    .hero-section {
+        justify-content: center;
+    }
+
+    .menu {
+        width: 50%;
+    }
+}
+
+/*media query for mobile*/
+
+@media (max-width: 767px) {
+    .custom-shape-divider svg {
+        width: calc(250% + 1.3px);
+        height: 150px;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        padding-top: 100px;
+    }
+
+    .featured {
+        flex-direction: column;
+    }
+
+    .featured img {
+        padding-bottom: 50px;
+    }
+
+    .header a {
+        font-size: 1 rem;
+    }
+
+    .hero-section {
+        height: 90vh;
+    }
+
+    /*for header*/
+    .menu {
+        width: 100%;
+    }
+
+}
+
+.main {
+    margin-top: 30px;
+    /* Add a top margin to avoid content overlay */
+}
